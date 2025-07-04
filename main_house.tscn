@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvcy63uesvq2o"]
+
+[ext_resource type="PackedScene" uid="uid://bwlb0qcqn11x8" path="res://house_model.tscn" id="1_l62kv"]
+
+[node name="Main House" type="Node3D"]
+
+[node name="Baby Simulator House2" parent="." instance=ExtResource("1_l62kv")]

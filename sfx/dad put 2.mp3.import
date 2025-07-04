@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxovjc4tdo52i"
+path="res://.godot/imported/dad put 2.mp3-22217e6fc53bada79070ebe45d69c37f.mp3str"
+
+[deps]
+
+source_file="res://sfx/dad put 2.mp3"
+dest_files=["res://.godot/imported/dad put 2.mp3-22217e6fc53bada79070ebe45d69c37f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4obwqoh0dqas"]
+
+[ext_resource type="Script" uid="uid://d3tagms2l378c" path="res://items/grippySocks/grippySocks.gd" id="1_4t13b"]
+[ext_resource type="Texture2D" uid="uid://vd6glcjvbntq" path="res://items/grippySocks/grippy socks.png" id="2_aqhmo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1odha"]
+transparency = 1
+albedo_texture = ExtResource("2_aqhmo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq2jj"]
+material = SubResource("StandardMaterial3D_1odha")
+size = Vector2(1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ce4q"]
+radius = 1.0
+
+[node name="grippySocks" type="Area3D"]
+script = ExtResource("1_4t13b")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.503822, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="mesh" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7ce4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

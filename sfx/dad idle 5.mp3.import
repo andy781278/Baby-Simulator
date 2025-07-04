@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dap3ica8k30jm"
+path="res://.godot/imported/dad idle 5.mp3-9cf6e9b98533d111bb7413964cb23fbb.mp3str"
+
+[deps]
+
+source_file="res://sfx/dad idle 5.mp3"
+dest_files=["res://.godot/imported/dad idle 5.mp3-9cf6e9b98533d111bb7413964cb23fbb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

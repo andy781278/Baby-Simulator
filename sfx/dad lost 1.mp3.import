@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1oukk2bw0urr"
+path="res://.godot/imported/dad lost 1.mp3-52b360e2687d9ebf1fe07a2d893b5c09.mp3str"
+
+[deps]
+
+source_file="res://sfx/dad lost 1.mp3"
+dest_files=["res://.godot/imported/dad lost 1.mp3-52b360e2687d9ebf1fe07a2d893b5c09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

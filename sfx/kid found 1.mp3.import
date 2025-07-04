@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnlk5xi6tx6r"
+path="res://.godot/imported/kid found 1.mp3-3007dcdf1386a2c48a99a4e5c8e73fe1.mp3str"
+
+[deps]
+
+source_file="res://sfx/kid found 1.mp3"
+dest_files=["res://.godot/imported/kid found 1.mp3-3007dcdf1386a2c48a99a4e5c8e73fe1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

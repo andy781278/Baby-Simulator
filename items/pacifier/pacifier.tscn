@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxyibdubbl8cm"]
+
+[ext_resource type="Script" uid="uid://chil80n2gkivj" path="res://items/pacifier/pacifier.gd" id="1_ei3n1"]
+[ext_resource type="Texture2D" uid="uid://bbsvihob5auvf" path="res://items/pacifier/pacifier.png" id="2_ldp4v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1odha"]
+transparency = 1
+albedo_texture = ExtResource("2_ldp4v")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq2jj"]
+material = SubResource("StandardMaterial3D_1odha")
+size = Vector2(0.6, 0.6)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ce4q"]
+radius = 1.0
+
+[node name="pacifier" type="Area3D"]
+script = ExtResource("1_ei3n1")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.302031, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="mesh" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7ce4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

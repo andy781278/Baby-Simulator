@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://py2n6aerern"
+path="res://.godot/imported/kid idle 5.mp3-d13d3811443f09eebac5a328b8f5b476.mp3str"
+
+[deps]
+
+source_file="res://sfx/kid idle 5.mp3"
+dest_files=["res://.godot/imported/kid idle 5.mp3-d13d3811443f09eebac5a328b8f5b476.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

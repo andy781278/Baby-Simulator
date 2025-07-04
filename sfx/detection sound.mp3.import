@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c57qkfswigulk"
+path="res://.godot/imported/detection sound.mp3-9f5280a1308c360cdb8cfa301b3ab854.mp3str"
+
+[deps]
+
+source_file="res://sfx/detection sound.mp3"
+dest_files=["res://.godot/imported/detection sound.mp3-9f5280a1308c360cdb8cfa301b3ab854.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

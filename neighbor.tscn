@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://e0iy6nqniq88"]
+
+[ext_resource type="Script" uid="uid://d065ekd4pt1g4" path="res://neighbor.gd" id="1_6328k"]
+[ext_resource type="Texture2D" uid="uid://8knvagcmwabo" path="res://neighbor.png" id="1_i0b6h"]
+[ext_resource type="Texture2D" uid="uid://c82g5ib0fw4o8" path="res://neighborPebbled.png" id="2_nmpqy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7ofs"]
+transparency = 1
+albedo_texture = ExtResource("2_nmpqy")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_y6dwr"]
+material = SubResource("StandardMaterial3D_k7ofs")
+size = Vector2(2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiewt"]
+transparency = 1
+albedo_texture = ExtResource("1_i0b6h")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_v8oy1"]
+material = SubResource("StandardMaterial3D_iiewt")
+size = Vector2(2, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y2tc3"]
+radius = 0.18087
+height = 2.52277
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p88x6"]
+radius = 1.0
+height = 3.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cks38"]
+radius = 7.0
+
+[node name="neighbor" type="CharacterBody3D" groups=["entity"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_6328k")
+
+[node name="modelp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767204, 1.52283, -0.103759)
+visible = false
+mesh = SubResource("QuadMesh_y6dwr")
+skeleton = NodePath("../model")
+
+[node name="model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767204, 1.52283, -0.103759)
+mesh = SubResource("QuadMesh_v8oy1")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26844, 0)
+shape = SubResource("CapsuleShape3D_y2tc3")
+
+[node name="pebbleRadius" type="Area3D" parent="." groups=["pebable"]]
+
+[node name="collider" type="CollisionShape3D" parent="pebbleRadius"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15458, 0)
+shape = SubResource("CapsuleShape3D_p88x6")
+
+[node name="sense" type="Area3D" parent="."]
+
+[node name="collider" type="CollisionShape3D" parent="sense"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45091, 0)
+shape = SubResource("SphereShape3D_cks38")
+
+[node name="checkPlayer" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39831, 0)
+target_position = Vector3(0, 0, -7)
+debug_shape_thickness = 5
+
+[node name="navAgent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.5
+path_height_offset = 0.2
+avoidance_enabled = true
+radius = 1.0
+
+[node name="walk_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="seeBabyAudioCD" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="idleAudioTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="bananaTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="call" type="AudioStreamPlayer3D" parent="." groups=["audio_players"]]
+volume_db = 12.0
+unit_size = 3.0
+
+[node name="stunCD" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="sense" to="." method="_on_sense_body_entered"]
+[connection signal="body_exited" from="sense" to="." method="_on_sense_body_exited"]
+[connection signal="target_reached" from="navAgent" to="." method="_on_nav_agent_target_reached"]
+[connection signal="velocity_computed" from="navAgent" to="." method="_on_nav_agent_velocity_computed"]
+[connection signal="timeout" from="walk_timer" to="." method="_on_walk_timer_timeout"]
+[connection signal="timeout" from="idleAudioTimer" to="." method="_on_idle_audio_timer_timeout"]
+[connection signal="timeout" from="bananaTimer" to="." method="_on_banana_timer_timeout"]
+[connection signal="timeout" from="stunCD" to="." method="_on_stun_cd_timeout"]

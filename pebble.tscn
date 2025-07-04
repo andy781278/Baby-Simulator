@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bifmk3u8amoku"]
+
+[ext_resource type="Script" uid="uid://bsaplchchvnpy" path="res://pebble.gd" id="1_gfylr"]
+[ext_resource type="Texture2D" uid="uid://c01rf8ctdv227" path="res://pebble.png" id="1_omnlw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfylr"]
+transparency = 1
+albedo_texture = ExtResource("1_omnlw")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_4t2er"]
+material = SubResource("StandardMaterial3D_gfylr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_omnlw"]
+
+[node name="pebble" type="CharacterBody3D"]
+script = ExtResource("1_gfylr")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_4t2er")
+
+[node name="collisionArea" type="Area3D" parent="."]
+
+[node name="collider" type="CollisionShape3D" parent="collisionArea"]
+shape = SubResource("SphereShape3D_omnlw")
+
+[node name="lifetime" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="area_entered" from="collisionArea" to="." method="_on_collision_area_area_entered"]
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]

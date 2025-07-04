@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://fwreon52nmoa"]
+
+[ext_resource type="Script" uid="uid://bi4roshn6sqju" path="res://mom.gd" id="1_83xe5"]
+[ext_resource type="Texture2D" uid="uid://dae6twa4ebym8" path="res://darkmom.png" id="1_uemts"]
+[ext_resource type="AudioStream" uid="uid://do0tmhqfljj0b" path="res://sfx/door.wav" id="3_djgh0"]
+[ext_resource type="AudioStream" uid="uid://b67edq0b3slux" path="res://music/momSound.mp3" id="4_0o253"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npv7c"]
+transparency = 1
+albedo_texture = ExtResource("1_uemts")
+rim_tint = 0.0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fw1sp"]
+lightmap_size_hint = Vector2i(17, 27)
+material = SubResource("StandardMaterial3D_npv7c")
+size = Vector2(3, 5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nj15d"]
+radius = 3.0
+height = 8.0
+
+[node name="mom" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_83xe5")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5003, 0)
+mesh = SubResource("QuadMesh_fw1sp")
+
+[node name="jumpscareArea" type="Area3D" parent="."]
+
+[node name="collider" type="CollisionShape3D" parent="jumpscareArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93392, 0)
+shape = SubResource("CapsuleShape3D_nj15d")
+
+[node name="navAgent" type="NavigationAgent3D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 5.0
+path_height_offset = 0.5
+path_max_distance = 3.01
+
+[node name="door" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_djgh0")
+
+[node name="ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_0o253")
+volume_db = 5.0
+unit_size = 3.0
+
+[connection signal="body_entered" from="jumpscareArea" to="." method="_on_jumpscare_area_body_entered"]
+[connection signal="target_reached" from="navAgent" to="." method="_on_nav_agent_target_reached"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://do4cpvb8dh2my"]
+
+[ext_resource type="Texture2D" uid="uid://8e1gnarbae5g" path="res://items/legoBricks/lego bricks.png" id="1_2cp5w"]
+[ext_resource type="Script" uid="uid://c63ssgjposcye" path="res://lego_terrain.gd" id="1_k58cf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lthsp"]
+transparency = 1
+albedo_texture = ExtResource("1_2cp5w")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6d6pc"]
+material = SubResource("StandardMaterial3D_lthsp")
+size = Vector2(3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_it24o"]
+size = Vector3(2.5, 3.30481, 2.5)
+
+[node name="legoTerrain" type="Area3D"]
+script = ExtResource("1_k58cf")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+mesh = SubResource("PlaneMesh_6d6pc")
+
+[node name="mesh" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_6d6pc")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43204, 0)
+shape = SubResource("BoxShape3D_it24o")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

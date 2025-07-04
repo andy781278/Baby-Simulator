@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwpkbv6lq81b4"
+path="res://.godot/imported/baby fake cry.mp3-278cfc66523398bbb975ccd6edf03e42.mp3str"
+
+[deps]
+
+source_file="res://sfx/baby fake cry.mp3"
+dest_files=["res://.godot/imported/baby fake cry.mp3-278cfc66523398bbb975ccd6edf03e42.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

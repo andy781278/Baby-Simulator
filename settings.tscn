@@ -1,0 +1,183 @@
+[gd_scene load_steps=2 format=3 uid="uid://vvya20x2hjiq"]
+
+[ext_resource type="Script" uid="uid://bxixhaxi6r6ky" path="res://settings.gd" id="1_1senl"]
+
+[node name="settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1senl")
+
+[node name="reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 45.0
+offset_right = 208.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 30
+text = "RESET DAY"
+
+[node name="background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.490196, 0.490196, 0.490196, 0.588235)
+
+[node name="vbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -260.5
+offset_right = 187.0
+offset_bottom = 260.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="stuck" type="Button" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "I'M STUCK"
+
+[node name="controls" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="controls3" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "WASD - Move Around"
+horizontal_alignment = 1
+
+[node name="controls2" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Space - Jump"
+horizontal_alignment = 1
+
+[node name="controls4" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "C - Crouch"
+horizontal_alignment = 1
+
+[node name="controls5" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Shift - Run"
+horizontal_alignment = 1
+
+[node name="controls6" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Q - Cry"
+horizontal_alignment = 1
+
+[node name="controls9" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "R - Use Slingshot"
+horizontal_alignment = 1
+
+[node name="controls7" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "E - Drink/Pickup"
+horizontal_alignment = 1
+
+[node name="controls8" type="Label" parent="vbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Left Click - Use Item"
+horizontal_alignment = 1
+
+[node name="sense" type="HBoxContainer" parent="vbox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="name" type="Label" parent="vbox/sense"]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="vbox/sense"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+value = 50.0
+scrollable = false
+
+[node name="value" type="Label" parent="vbox/sense"]
+layout_mode = 2
+text = "0.1"
+
+[node name="volume" type="HBoxContainer" parent="vbox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="name" type="Label" parent="vbox/volume"]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="vbox/volume"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+value = 50.0
+scrollable = false
+
+[node name="value" type="Label" parent="vbox/volume"]
+layout_mode = 2
+text = "50"
+
+[node name="encyclopedia" type="Button" parent="vbox"]
+layout_mode = 2
+text = "Encyclopedia"
+
+[node name="return" type="Button" parent="vbox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "RETURN"
+
+[node name="backgrounde" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1400, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -700.0
+offset_top = -400.0
+offset_right = 700.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.954848, 0.71305, 0.848498, 1)
+
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="vbox/stuck" to="." method="_on_stuck_pressed"]
+[connection signal="pressed" from="vbox/return" to="." method="_on_return_pressed"]

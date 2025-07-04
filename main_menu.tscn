@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cccj7grdlts61"]
+
+[ext_resource type="Texture2D" uid="uid://djc61gv76ngkh" path="res://logo.png" id="1_iofsy"]
+[ext_resource type="Texture2D" uid="uid://duiavi0umseaq" path="res://bottle.png" id="1_mhcdx"]
+[ext_resource type="Script" uid="uid://dhb0qqidg81ye" path="res://main_menu.gd" id="1_xyd34"]
+[ext_resource type="AudioStream" uid="uid://d3cff0rbd7qp4" path="res://music/main menu.mp3" id="2_lp2rl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4fd8"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 1, 1)
+angle_max = 360.0
+velocity_pivot = Vector3(1, 0, 0)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+flatness = 0.8
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.05
+scale_max = 0.2
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="SystemFont" id="SystemFont_2puk0"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[node name="main menu" type="Node2D"]
+script = ExtResource("1_xyd34")
+
+[node name="confetti" type="GPUParticles2D" parent="."]
+position = Vector2(9, -671)
+amount = 120
+texture = ExtResource("1_mhcdx")
+lifetime = 10.0
+preprocess = 5.0
+fixed_fps = 60
+visibility_rect = Rect2(-600, -325, 1175, 675)
+process_material = SubResource("ParticleProcessMaterial_m4fd8")
+
+[node name="cam" type="Camera2D" parent="."]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(-2, -154)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_iofsy")
+
+[node name="start" type="Button" parent="."]
+offset_left = -131.0
+offset_top = 61.0
+offset_right = 130.0
+offset_bottom = 140.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.129412, 0, 0.294118, 1)
+theme_override_fonts/font = SubResource("SystemFont_2puk0")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lp2rl")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

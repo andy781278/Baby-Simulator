@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://grj34j1c58s0"
+path="res://.godot/imported/baby cry lose.wav-3447b14997d55c54df7d948e41fa1eda.sample"
+
+[deps]
+
+source_file="res://sfx/baby cry lose.wav"
+dest_files=["res://.godot/imported/baby cry lose.wav-3447b14997d55c54df7d948e41fa1eda.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

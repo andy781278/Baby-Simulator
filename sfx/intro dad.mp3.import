@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbhmthv2tgxrm"
+path="res://.godot/imported/intro dad.mp3-048b8c2bf3caa1cfff6c29d6fa31f443.mp3str"
+
+[deps]
+
+source_file="res://sfx/intro dad.mp3"
+dest_files=["res://.godot/imported/intro dad.mp3-048b8c2bf3caa1cfff6c29d6fa31f443.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

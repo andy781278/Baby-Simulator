@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://doksvulpi7whf"]
+
+[ext_resource type="Texture2D" uid="uid://duiavi0umseaq" path="res://bottle.png" id="1_35gan"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vm343"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape_offset = Vector3(0, 300, 0)
+emission_shape = 1
+emission_sphere_radius = 50.0
+angle_max = 360.0
+velocity_pivot = Vector3(1, 0, 0)
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 500.0
+initial_velocity_max = 1500.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 980, 0)
+scale_min = 0.2
+scale_max = 0.25
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[node name="confetti" type="GPUParticles2D"]
+position = Vector2(988, 517)
+emitting = false
+amount = 60
+texture = ExtResource("1_35gan")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+fixed_fps = 60
+visibility_rect = Rect2(-600, -325, 1175, 675)
+process_material = SubResource("ParticleProcessMaterial_vm343")

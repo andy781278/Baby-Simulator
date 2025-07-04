@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu57qj3erew6x"]
+
+[ext_resource type="Script" uid="uid://ultd3pvvaha5" path="res://items/spoiledBurger/spoiledBurger.gd" id="1_xvf15"]
+[ext_resource type="Texture2D" uid="uid://drq0e5qyyre26" path="res://items/spoiledBurger/spoiledBurger.png" id="2_ohmnm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1odha"]
+transparency = 1
+albedo_texture = ExtResource("2_ohmnm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq2jj"]
+material = SubResource("StandardMaterial3D_1odha")
+size = Vector2(0.7, 0.7)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ce4q"]
+radius = 1.0
+
+[node name="spoiledBurger" type="Area3D"]
+script = ExtResource("1_xvf15")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3074, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="mesh" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jq2jj")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7ce4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
