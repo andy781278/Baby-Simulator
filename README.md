@@ -1,6 +1,6 @@
-This is Baby Simulator.
-A chaotic house survival game where you play as a baby gathering milk bottles while avoiding Dad. Made for Chill Devs Chill Jam #6 in Godot.
-Play on Itch.io
+# This is Baby Simulator.  
+##### A chaotic house survival game where you play as a baby gathering milk bottles while avoiding Dad. Made for Chill Devs Chill Jam #6 in Godot.
+### [Play on Itch.io](https://andy781278.itch.io/baby-simulator)
 ![cover](https://github.com/user-attachments/assets/1563ddaf-3936-438d-abf5-e25e3fb14f14)
 ![image](https://github.com/user-attachments/assets/266857df-f90b-49ca-a5e6-2b071c8625f9)
 ![image3](https://github.com/user-attachments/assets/c85ff83b-ae6e-442d-a0be-df496416234e)
